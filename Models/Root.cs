@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,8 @@ namespace MauiPractice.Models
     public class List
     {
         public int dt { get; set; }
+        public string localTime => $"{DateTimeOffset.FromUnixTimeSeconds(dt).ToLocalTime().ToString("h tt")}";
+
         public Main main { get; set; }
         public List<Weather> weather { get; set; }
         public Clouds clouds { get; set; }
@@ -47,6 +50,10 @@ namespace MauiPractice.Models
     public class Main
     {
         public double temp { get; set; }
+        public double temperature => Math.Round(temp);
+        public string temperatureFormatted => $"{Math.Round(temp)}°C";
+
+
         public double feels_like { get; set; }
         public double temp_min { get; set; }
         public double temp_max { get; set; }
@@ -83,6 +90,7 @@ namespace MauiPractice.Models
         public string main { get; set; }
         public string description { get; set; }
         public string icon { get; set; }
+        public string fullIconUrl => $"https://openweathermap.org/img/wn/{icon}@4x.png";
     }
 
     public class Wind
