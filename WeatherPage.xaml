@@ -17,12 +17,19 @@
 
                 <Label Text="Your Location"
                        FontSize="Default" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapLocation"
+                                          Tapped="TapLocation_Tapped" />
+                </Frame.GestureRecognizers>
+                
             </Frame>
 
             <ImageButton Source="mag_icon.jpg"
                          HeightRequest="30"
                          WidthRequest="30"
-                         HorizontalOptions="EndAndExpand" />
+                         HorizontalOptions="EndAndExpand" 
+                         Clicked="ImageButton_Clicked"
+                         />
 
 
         </StackLayout>
